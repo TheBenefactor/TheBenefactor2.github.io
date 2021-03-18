@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Menu </title>
+<script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
+<script>
+function start(){
+sjs.open();
+var plyBtn = new sjs.Button("Start",function(){
+	window.location = "game.html";
+});
+plyBtn.center();
+
+var menuTxt = new sjs.Text("Interstellar Invasion",40,"green");
+menuTxt.center().top().offset(0,20);
+
+var hTP = new sjs.Text("How to play: Use the arrow keys to move left and right, use the up arrow to shoot, Destroy all the Aliens to win!", 20, "orange");
+hTP.center().top().offset(0,100);
+
+var musicTxt = new sjs.Text("Use space bar to turn the music on or off",20,"black");
+musicTxt.center().offset(0,100);
+
+var madeBy = new sjs.Text("Game made by Ben Pinter",25,"black");
+madeBy.center().bottom();
+}
+</script>
+</head>
+<body onload="start()">
+<h1> Custom Game </h1>
+
+<div id="target" style="margin:auto;background:grey;"></div>
+</body>
+</html>

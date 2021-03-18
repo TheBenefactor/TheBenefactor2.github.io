@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Win </title>
+<script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
+<script>
+function start(){
+sjs.open();
+var backgrnd = new
+sjs.Image("https://media.giphy.com/media/IjmMzurYulKEw/giphy.gif");
+backgrnd.setSize(500, 400);
+var win = new
+sjs.Text("Congratulations! You have destoryed the alien threat and saved the day!", 30, "orange");
+win.center().top();
+win.offset(0,30);
+var menubtn = new
+sjs.Button("Back to Menu",function(){
+ window.location = "index.html"
+});
+menubtn.center();
+
+}
+</script>
+</head>
+<body onload="start()">
+<h1> You Win </h1>
+
+<div id="target" style="margin:auto;background:grey;"></div>
+</body>
+</html>

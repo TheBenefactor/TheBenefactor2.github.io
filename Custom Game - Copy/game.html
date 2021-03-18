@@ -1,0 +1,464 @@
+<html>
+<head>
+<title> Custom Game </title>
+<script src="https://simplycodingcourses.com/files/simply.js"></script>
+<script>
+function start(){
+sjs.open("target",500,400);
+//music
+var music = new
+Audio('Music/mad_robots.mp3');
+var toggle = true;
+var musicOn = false;
+sjs.keyDown(SPACE_KEY, function(){
+	if(toggle == true){
+		if(musicOn == false){
+			music.play();
+			musicOn = true;
+		} else {
+			music.pause();
+			musicOn = false;
+		}
+		toggle = false;
+		setTimeout(function(){
+			toggle = true;
+		}, 1000);
+	}
+});
+//Background properties
+var bg = new sjs.Image("Images/SpaceBackground.jpg");
+bg.setSize(500,400);
+//end background properties
+//player properties
+var player = new sjs.Image("Images/PlayerShip-1.png.png");
+var canShoot = true;
+player.type = "player";
+player.center().bottom();
+player.setSize(50,50);
+player.friction = .05;
+sjs.keyDown(LEFT_KEY,function(){
+	player.pushLeft();
+});
+sjs.keyDown(RIGHT_KEY,function(){
+	player.pushRight();
+});
+
+sjs.keyDown(UP_KEY,function(){
+	if(canShoot == true){
+		canShoot = false;
+	var lazer = new sjs.Image("Images/Lazer-1.png.png");
+	lazer.type = "lazer";
+	lazer.setSize(5,15);
+	lazer.friction = 0;
+	lazer.noBounds = true;
+	lazer.moveTo(player.getX()+-0,player.getY()+7);
+	lazer.pushUp(25.5);
+	lazer.offset(20,10);
+	player.setImage("Images/PlayerShip-2.png.png");
+	setInterval(function(){
+	canShoot = true;
+	},500);
+	}
+	});
+//end player code
+//start enemy code
+var enemy1 = new sjs.Image("Images/Enemy1.png.png");
+enemy1.type = "enemy1"
+enemy1.friction = 0;
+enemy1.noBounds = true;
+enemy1.pushRight(3);
+enemy1.accel = 1;
+enemy1.setSize(32,32);
+//end enemy1 code
+//start enemy2 code
+var enemy2 = new sjs.Image("Images/Enemy2-1.png.png");
+enemy2.type = "enemy2"
+enemy2.friction = 0;
+enemy2.noBounds = true;
+enemy2.pushRight(3);
+enemy2.accel = 1;
+enemy2.offset(0,30);
+enemy2.setSize(32,32);
+//end enemy2 code
+//start enemy3 code
+var enemy3 = new sjs.Image("Images/Enemy3-1.png.png");
+enemy3.type = "enemy3";
+enemy3.friction = 0;
+enemy3.noBounds = true;
+enemy3.pushRight(3);
+enemy3.accel = 1;
+enemy3.offset(0,60);
+enemy3.setSize(32,32);
+//end enemy3 code
+//start enemy4 code
+var enemy4 = new sjs.Image("Images/Enemy4-1.png.png");
+enemy4.type = "enemy4";
+enemy4.friction = 0;
+enemy4.noBounds = true;
+enemy4.pushRight(3);
+enemy4.accel = 1;
+enemy4.offset(0,90);
+enemy4.setSize(32,32);
+//end enemy4 code
+//start fast enemy code
+var fEnemy = new sjs.Image("Images/FastEnemy-1.png.png");
+fEnemy.type = "fEnemy";
+fEnemy.friction = 0;
+fEnemy.noBounds = true;
+fEnemy.pushRight(10);
+fEnemy.setSize(32,32);
+//end fast enemy code
+
+//start enemy code
+var enemy5 = new sjs.Image("Images/Enemy1.png.png");
+enemy5.type = "enemy1"
+enemy5.friction = 0;
+enemy5.noBounds = true;
+enemy5.pushRight(3);
+enemy5.accel = 1;
+enemy5.setSize(32,32);
+enemy5.offset(50,0);
+//end enemy5 code
+//start enemy6 code
+var enemy6 = new sjs.Image("Images/Enemy2-1.png.png");
+enemy6.type = "enemy2"
+enemy6.friction = 0;
+enemy6.noBounds = true;
+enemy6.pushRight(3);
+enemy6.accel = 1;
+enemy6.offset(50,30);
+enemy6.setSize(32,32);
+//end enemy6 code
+//start enemy7 code
+var enemy7 = new sjs.Image("Images/Enemy3-1.png.png");
+enemy7.type = "enemy3";
+enemy7.friction = 0;
+enemy7.noBounds = true;
+enemy7.pushRight(3);
+enemy7.accel = 1;
+enemy7.offset(50,60);
+enemy7.setSize(32,32);
+//end enemy7 code
+//start enemy8 code
+var enemy8 = new sjs.Image("Images/Enemy4-1.png.png");
+enemy8.type = "enemy4";
+enemy8.friction = 0;
+enemy8.noBounds = true;
+enemy8.pushRight(3);
+enemy8.accel = 1;
+enemy8.offset(50,90);
+enemy8.setSize(32,32);
+//end enemy8 code
+//start fast enemy2 code
+var fEnemy2 = new sjs.Image("Images/FastEnemy-1.png.png");
+fEnemy2.type = "fEnemy";
+fEnemy2.friction = 0;
+fEnemy2.noBounds = true;
+fEnemy2.pushLeft(10);
+fEnemy2.setSize(32,32);
+fEnemy2.top().right();
+//end fast enemy2 code
+
+//start enemy code
+var enemy9 = new sjs.Image("Images/Enemy1.png.png");
+enemy9.type = "enemy1"
+enemy9.friction = 0;
+enemy9.noBounds = true;
+enemy9.pushRight(3);
+enemy9.accel = 1;
+enemy9.setSize(32,32);
+enemy9.offset(100,0);
+//end enemy9 code
+//start enemy10 code
+var enemy10 = new sjs.Image("Images/Enemy2-1.png.png");
+enemy10.type = "enemy2"
+enemy10.friction = 0;
+enemy10.noBounds = true;
+enemy10.pushRight(3);
+enemy10.accel = 1;
+enemy10.offset(100,30);
+enemy10.setSize(32,32);
+//end enemy10 code
+//start enemy11 code
+var enemy11 = new sjs.Image("Images/Enemy3-1.png.png");
+enemy11.type = "enemy3";
+enemy11.friction = 0;
+enemy11.noBounds = true;
+enemy11.pushRight(3);
+enemy11.accel = 1;
+enemy11.offset(100,60);
+enemy11.setSize(32,32);
+//end enemy11 code
+//start enemy12 code
+var enemy12 = new sjs.Image("Images/Enemy4-1.png.png");
+enemy12.type = "enemy4";
+enemy12.friction = 0;
+enemy12.noBounds = true;
+enemy12.pushRight(3);
+enemy12.accel = 1;
+enemy12.offset(100,90);
+enemy12.setSize(32,32);
+//end enemy12 code
+//start enemy13 code
+var enemy13 = new sjs.Image("Images/Enemy1.png.png");
+enemy13.type = "enemy1"
+enemy13.friction = 0;
+enemy13.noBounds = true;
+enemy13.pushRight(3);
+enemy13.accel = 1;
+enemy13.setSize(32,32);
+enemy13.offset(150,0);
+//end enemy13 code
+//start enemy14 code
+var enemy14 = new sjs.Image("Images/Enemy2-1.png.png");
+enemy14.type = "enemy2"
+enemy14.friction = 0;
+enemy14.noBounds = true;
+enemy14.pushRight(3);
+enemy14.accel = 1;
+enemy14.offset(150,30);
+enemy14.setSize(32,32);
+//end enemy14 code
+//start enemy15 code
+var enemy15 = new sjs.Image("Images/Enemy3-1.png.png");
+enemy15.type = "enemy3";
+enemy15.friction = 0;
+enemy15.noBounds = true;
+enemy15.pushRight(3);
+enemy15.accel = 1;
+enemy15.offset(150,60);
+enemy15.setSize(32,32);
+//end enemy15 code
+//start enemy16 code
+var enemy16 = new sjs.Image("Images/Enemy4-1.png.png");
+enemy16.type = "enemy4";
+enemy16.friction = 0;
+enemy16.noBounds = true;
+enemy16.pushRight(3);
+enemy16.accel = 1;
+enemy16.offset(150,90);
+enemy16.setSize(32,32);
+//end enemy16 code
+//start enemy17 code
+var enemy17 = new sjs.Image("Images/Enemy1.png.png");
+enemy17.type = "enemy1"
+enemy17.friction = 0;
+enemy17.noBounds = true;
+enemy17.pushRight(3);
+enemy17.accel = 1;
+enemy17.setSize(32,32);
+enemy17.offset(200,0);
+//end enemy17 code
+//start enemy18 code
+var enemy18 = new sjs.Image("Images/Enemy2-1.png.png");
+enemy18.type = "enemy2"
+enemy18.friction = 0;
+enemy18.noBounds = true;
+enemy18.pushRight(3);
+enemy18.accel = 1;
+enemy18.offset(200,30);
+enemy18.setSize(32,32);
+//end enemy18 code
+//start enemy19 code
+var enemy19 = new sjs.Image("Images/Enemy3-1.png.png");
+enemy19.type = "enemy3";
+enemy19.friction = 0;
+enemy19.noBounds = true;
+enemy19.pushRight(3);
+enemy19.accel = 1;
+enemy19.offset(200,60);
+enemy19.setSize(32,32);
+//end enemy19 code
+//start enemy20 code
+var enemy20 = new sjs.Image("Images/Enemy4-1.png.png");
+enemy20.type = "enemy4";
+enemy20.friction = 0;
+enemy20.noBounds = true;
+enemy20.pushRight(3);
+enemy20.accel = 1;
+enemy20.offset(200,90);
+enemy20.setSize(32,32);
+//end enemy20 code
+//start fast enemy2 code
+var fEnemy2 = new sjs.Image("Images/FastEnemy-1.png.png");
+fEnemy2.type = "fEnemy";
+fEnemy2.friction = 0;
+fEnemy2.noBounds = true;
+fEnemy2.pushLeft(10);
+fEnemy2.setSize(32,32);
+fEnemy2.top().right();
+//end fast enemy2 code
+
+// Start drop bug code
+var dropBug = new sjs.Image("Images/DropBug.gif");
+dropBug.type = "dropBug";
+dropBug.friction = 0;
+dropBug.noBounds = true;
+setInterval(function(){
+	dropBug.moveTo(player.getX()+0,player.getY()-500);
+	dropBug.pushDown(7);
+},4000);
+
+//end drop bug code
+//Lazer2 code
+var eCanShoot = true
+if(eCanShoot == true){
+	eCanShoot = false
+	var lazer2 = new sjs.Image("Images/Lazer2-1.png.png");
+	setInterval(function(){
+lazer2.moveTo(enemy4.getX()+-0,enemy4.getY()+7);
+lazer2.pushDown(5);
+lazer2.type = "lazer2";
+lazer2.friction = 0;
+lazer2.noBounds = true;
+eCanShoot = true;
+},1000);
+};
+
+//Lazer3 code
+var eCanShoot = true
+if(eCanShoot == true){
+	eCanShoot = false
+	var lazer3 = new sjs.Image("Images/Lazer2-1.png.png");
+	setInterval(function(){
+lazer3.moveTo(enemy8.getX()+-0,enemy8.getY()+7);
+lazer3.pushDown(5);
+lazer3.type = "lazer2";
+lazer3.friction = 0;
+lazer3.noBounds = true;
+eCanShoot = true;
+},1500);
+};
+//Lazer4 code
+var eCanShoot = true
+if(eCanShoot == true){
+	eCanShoot = false
+	var lazer4 = new sjs.Image("Images/Lazer2-1.png.png");
+	setInterval(function(){
+lazer4.moveTo(enemy12.getX()+-0,enemy12.getY()+7);
+lazer4.pushDown(5);
+lazer4.type = "lazer2";
+lazer4.friction = 0;
+lazer4.noBounds = true;
+eCanShoot = true;
+},2000);
+};
+//Lazer5 code
+var eCanShoot = true
+if(eCanShoot == true){
+	eCanShoot = false
+	var lazer5 = new sjs.Image("Images/Lazer2-1.png.png");
+	setInterval(function(){
+lazer5.moveTo(enemy16.getX()+-0,enemy16.getY()+7);
+lazer5.pushDown(5);
+lazer5.type = "lazer2";
+lazer5.friction = 0;
+lazer5.noBounds = true;
+eCanShoot = true;
+},2500);
+};
+
+//start onHit codes
+sjs.onHit(["enemy1","enemy2","enemy3","enemy4","fEnemy"],["left_screen","right_screen"],function(x,y){
+	sjs.bounceOff(x,y);
+	x.offset(0,30);
+});
+sjs.onHit("lazer","top_screen",function(x,y){
+	x.destroy();
+});
+sjs.onHit(["enemy1","enemy2","enemy3","enemy4","fEnemy"],"player",function(x,y){
+	y.destroy();
+});
+
+//score on hit code and enemy on hits
+var score = 0;
+var scoreTxt = new sjs.Text("Score: 0",21,"orange");
+scoreTxt.center().top();
+scoreTxt.fixed = true;
+
+sjs.onHit("lazer","enemy4",function(x,y){
+	score = score+1
+	scoreTxt.setText("Score: "+ score);
+	localStorage.setItem("score",score);
+	y.moveTo(-100,100);
+	y.stop();
+	x.destroy();
+	if(score >= 34){
+	window.location = "Level2Menu.html";
+};
+});
+sjs.onHit("lazer","enemy3",function(x,y){
+	score = score+1
+	scoreTxt.setText("Score: "+ score);
+	localStorage.setItem("score",score);
+	y.moveTo(-100,100);
+	y.stop();
+	x.destroy();
+	if(score >= 34){
+	window.location = "Level2Menu.html";
+};
+});
+sjs.onHit("lazer","enemy2",function(x,y){
+	score = score+1
+	scoreTxt.setText("Score: "+ score);
+	localStorage.setItem("score",score);
+	y.moveTo(-100,100);
+	y.stop();
+	x.destroy();
+	if(score >= 34){
+	window.location = "Level2Menu.html";
+};
+});
+sjs.onHit("lazer","enemy1",function(x,y){
+	score = score+1
+	scoreTxt.setText("Score: "+ score);
+	localStorage.setItem("score",score);
+	y.moveTo(-100,100);
+	y.stop();
+	x.destroy();
+	if(score >= 34){
+	window.location = "Level2Menu.html";
+};
+});
+sjs.onHit("lazer","fEnemy",function(x,y){
+	score = score+5
+	scoreTxt.setText("Score: "+ score);
+	localStorage.setItem("score",score);
+	y.moveTo(-100,100);
+	y.stop();
+	x.destroy();
+	if(score >= 35){
+	window.location = "Level2Menu.html";
+};
+});
+sjs.onHit("lazer","dropBug",function(x,y){
+	y.moveTo(-100,100);
+	y.stop();
+	x.destroy();
+});
+sjs.onHit(["enemy1","enemy2","enemy3","enemy4","fEnemy","dropBug"],"player", function(x,y){
+	window.location = "gameover.html";
+});
+
+sjs.onHit("lazer2","player",function(x,y){
+	y.destroy();
+	window.location = "gameover.html";
+});
+sjs.onHit("lazer2","bottom_screen",function(x,y){
+	x.moveTo(-100,100);
+	x.stop();
+});
+sjs.onHit("dropBug","bottom_screen",function(x,y){
+	x.moveTo(-100,100);
+	x.stop();
+});
+
+} //end start
+</script>
+</head>
+<body onload="start()">
+<h1> Custom Game </h1>
+
+<div id="target" style="margin:auto;background:grey;"></div>
+</body>
+</html>

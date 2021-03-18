@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Menu </title>
+<script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
+<script>
+function start(){
+sjs.open();
+var plyBtn = new sjs.Button("Continue to level 2",function(){
+	window.location = "Level2.html";
+});
+plyBtn.center();
+
+var menuTxt = new sjs.Text("Well Done! You must now travel through the wormhole back to reality! Clear a path through!",25, "orange");
+menuTxt.center().offset(20,-100);
+
+var hintTxt = new sjs.Text("Hint: Be prepared for a quick attack");
+hintTxt.center().bottom();
+
+
+}
+</script>
+</head>
+<body onload="start()">
+<h1> Custom Game </h1>
+
+<div id="target" style="margin:auto;background:grey;"></div>
+</body>
+</html>
